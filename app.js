@@ -14,3 +14,10 @@ const fs = require('fs');
 // > This method is used to adding text inside a file without replacing the text inside of it      
 // fs.appendFileSync('notes.txt' , '  This is another data added')
 
+
+
+// # VALIDATOR
+
+var validator = require('validator');
+
+validator.isEmail('foo@bar.com');                        // o/p - true
