@@ -6,6 +6,7 @@
 
 
 const fs = require('fs');
+// const chalk = require('chalk');
 
 
 // > This method is used to create a new file and put content inside it                            
@@ -18,6 +19,23 @@ const fs = require('fs');
 
 // # VALIDATOR
 
-var validator = require('validator');
+const validator = require('validator');
 
-validator.isEmail('foo@bar.com');                        // o/p - true
+console.log(validator.isEmail('foo@bar.com'));                        // o/p - true
+
+// # CHALK
+
+const chalk = require('chalk');
+const { Console } = require('console');
+console.log(chalk.blue('Hello world!'));
+
+
+const command= process.argv[2];
+
+if(command==='add'){
+    console.log('new node added')
+}
+else if(command==='remove'){
+    console.log('node removed')
+}
+
