@@ -96,4 +96,28 @@ yargs.command({
     }
 })
 
+yargs.command({
+    command: '_note',
+    describe: 'Adds two number',
+    builder: {
+        title: {
+            describe: 'Note Title',
+            demandOption: true, // Required
+            type: 'string'
+        },
+        body: {
+            describe: 'Note Body',
+            demandOption: true,
+            type: 'string'
+        }
+    },
+
+    // Function for your command
+    handler:function(argv) {
+        console.log("Title:" + argv.title)
+        console.log("Body:" + argv.body)
+            
+    }
+})
+
 
