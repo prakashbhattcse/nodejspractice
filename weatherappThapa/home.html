@@ -1,0 +1,94 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" href="style.css">
+
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.1.1/css/all.min.css"
+        integrity="sha512-KfkfwYDsLkIlwQp6LFnl8zNdLGxu9YAA1QvwINks4PhcElQSvqcyVLLD9aMhXd13uQjoXtEKNosOWaZqXgel0g=="
+        crossorigin="anonymous" referrerpolicy="no-referrer" />
+</head>
+
+<body>
+    <div class="box">
+        <div class="wave wave-one"></div>
+        <div class="wave wave-two"></div>
+        <div class="wave wave-three"></div>
+
+        <div id="weathericon">
+            <i class="fa-solid fa-sun" style="color: #eccc68"></i>
+        </div>
+
+        <div class="info">
+            <h4 class="location"><i class="fa-solid fa-street-view"></i>Delhi</h4>
+            <p id="date"></p>
+            <h1 class="temp">24 C</h1>
+            <h3 class="tempmin_max">Min 26 C</h3>
+        </div>
+
+
+    </div>
+    </div>
+
+    <script>
+        const curDate = document.getElementById('date');
+        const weathericon = document.getElementById('weathericon');
+
+        const tempStatus = 'clouds';
+
+        const getCurrentDay = () => {
+            const weekday = ["Sunday", "Monday", "Tuesday", "Wednesday", "Thursday", "Friday", "Saturday"];
+
+            let currentTime = new Date();
+            let day = weekday[currentTime.getDay()];
+
+            return day;
+            // console.log(day);
+        }
+
+        // getCurrentDay();
+
+        const getCurrentTime = () => {
+            var currentTime = new Date();
+            var month = currentTime.getMonth() + 1;
+            var day = currentTime.getDate();
+
+            var hours = currentTime.getHours();
+            var mins = currentTime.getMinutes();
+          
+            let periods = 'AM';
+
+            if(hours > 11){
+                periods ='PM';
+                if(hours >12) hours -=12;
+            }
+            if(mins <10){
+                mins = '0'+ mins;
+            }
+          
+            // var seconds = currentTime.getSeconds();
+            // const secondFunction=()=>{
+            //       var seconds = currentTime.getSeconds();
+            //       var liveSeconds =setInterval(seconds,1000);
+            //       return liveSeconds;
+            // }
+            // var liveSeconds =setInterval(secondFunction,1000);
+
+            return ` | ${month}/${day} | ${hours}:${mins} ${periods}`;
+
+        };
+
+        // getCurrentTime();
+
+        curDate.innerHTML = getCurrentDay() + getCurrentTime();
+
+        // console.log(curDate.innerHTML = getCurrentDay() + getCurrentTime())
+    </script>
+
+</body>
+
+</html>
