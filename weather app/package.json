@@ -8,5 +8,9 @@
   "author": "",
   "license": "ISC",
   "keywords": [],
+  "dependencies": {
+    "postman-request": "^2.88.1-postman.31"
+  },
+  "devDependencies": {},
   "description": ""
 }

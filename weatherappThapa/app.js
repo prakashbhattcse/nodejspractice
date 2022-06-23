@@ -16,10 +16,11 @@ const replaceVal = (tempVal, orgVal) => {
 
 const server = http.createServer((req, res) => {
   if (req.url === '/') {
-    requests('https://api.openweathermap.org/data/2.5/weather?q=Delhi&appid=66a0bff374dee02705467ab0b953645d')
+    requests('https://api.openweathermap.org/data/2.5/weather?q=Delhi&units=metric&appid=66a0bff374dee02705467ab0b953645d')
       .on('data', (chunk) => {
         const objdata = JSON.parse(chunk);
         const arrData = [objdata];
+        // console.log(objdata.main);
 
         const realTimeData = arrData.map(val => replaceVal(homeFile, val)).join('');
         res.write(realTimeData);
@@ -31,6 +32,9 @@ const server = http.createServer((req, res) => {
         res.end('');
       });
   }
+  else {
+  res.end('Page not found');
+}
 });
 
 server.listen(8000, '127.0.0.1')
